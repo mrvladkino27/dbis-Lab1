@@ -151,7 +151,7 @@ def create_table(drop_if_exists=True) -> None:
     connection = ConnectDB.connect()
     additional_types_query = """DO
         BEGIN
-            IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'Gender') THEN
+            IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'gender') THEN
                 CREATE TYPE Gender AS ENUM ('female', 'man');
             END IF;
             IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'ter') THEN
@@ -171,7 +171,7 @@ def create_table(drop_if_exists=True) -> None:
     ZnoData_create_query += fields[:-2] + ');'
     
     with connection.cursor() as cursor:
-        # cursor.execute(additional_types_query)
+        cursor.execute(additional_types_query)
         if drop_if_exists:
             cursor.execute(ZnoData_drop_query)
             print('Table was droped.')
