@@ -1,0 +1,3 @@
+
+create_table(drop_if_exists=True)
+Time 0.2843 s
