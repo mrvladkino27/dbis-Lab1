@@ -1,3 +1,9 @@
 
 create_table(drop_if_exists=True)
 Time 0.2843 s
+
+from_csv_to_database()
+Time 3.499e+03 s
+
+get_max_eng_2019_2020()
+Time 126.7 s
